@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vokabeltrainer Französisch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Zahlenauswahl -->
+        <h2>Wähle eine Klasse zwischen 5 und 8:</h2>
+        <select id="selection" onchange="handleSelection()">
+            <option value="">Wähle eine Klasse</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <p id="message"></p>
+
+        <!-- Kapitel-Auswahl -->
+        <form id="chapterForm" style="display: none;">
+            <h3>Wähle die Unité/s aus:</h3>
+            <div id="chapters-7" style="display: none;">
+                <h4>Unités für die 7. Klasse:</h4>
+                <div class="chapter-box">
+                    <label><input type="checkbox" value="1"> Unité 1</label><br>
+                    <label><input type="checkbox" value="2"> Unité 2</label><br>
+                    <label><input type="checkbox" value="3"> Unité 3</label><br>
+                    <label><input type="checkbox" value="4"> Unité 4</label><br>
+                    <label><input type="checkbox" value="5"> Unité 5</label><br>
+                </div>
+            </div>
+            <div id="chapters-8" style="display: none;">
+                <h4>Unités für die 8. Klasse:</h4>
+                <div class="chapter-box">
+                    <label><input type="checkbox" value="1"> Unité 1</label><br>
+                    <label><input type="checkbox" value="2"> Unité 2</label><br>
+                    <label><input type="checkbox" value="3"> Unité 3</label><br>
+                    <label><input type="checkbox" value="4"> Unité 4</label><br>
+                    <label><input type="checkbox" value="5"> Unité 5</label><br>
+                    <label><input type="checkbox" value="6"> Unité 6</label><br>
+                </div>
+            </div>
+            <!-- Abfragerichtung -->
+            <h4>Abfragerichtung:</h4>
+            <select id="languageDirection">
+                <option value="de-fr">Deutsch → Französisch</option>
+                <option value="fr-de">Französisch → Deutsch</option>
+            </select><br><br>
+
+            <button type="button" onclick="startQuiz()">Starte Abfrage</button>
+            <p id="error-message" style="color: red;"></p> <!-- Fehlernachricht -->
+        </form>
+
+        <div id="unit-status"></div> <!-- Hinzugefügt für den Unité-Status -->
+
+        <!-- Quiz Container -->
+        <div id="quiz-container" style="display: none;">
+            <h2>Übersetze das Wort:</h2>
+            <div class="quiz-box"> <!-- Graue Box um den Inhalt -->
+                <p id="question">...</p>
+                <input type="text" id="answer" placeholder="Gib die Antwort ein...">
+                <button onclick="checkAnswer()">Überprüfen</button>
+                <p id="feedback"></p>
+                <button id="backButton" onclick="goBackToSelection()">Zurück zur Auswahl</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
